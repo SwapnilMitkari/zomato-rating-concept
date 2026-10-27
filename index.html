@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zomato concept: Ratings that feel alive</title>
+    <style>
+      body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #f6f4ef; font-family: Inter, system-ui, sans-serif; color: #15151c; }
+      .wrap { text-align: center; padding: 24px; }
+      .phone { position: relative; height: 18rem; width: 10rem; overflow: hidden; border-radius: 2.2rem; border: 7px solid #15151c; background: #fff; box-shadow: 0 20px 25px -5px rgb(0 0 0 / .1); margin: 0 auto; }
+      .phone > div { height: 100%; }
+      .absolute { position: absolute; } .relative { position: relative; } .h-full { height: 100%; } .w-full { width: 100%; }
+      .rounded-full { border-radius: 9999px; } .bg-white { background: #fff; } .bg-ink { background: #15151c; }
+      .flex { display: flex; } .items-center { align-items: center; } .justify-center { justify-content: center; } .flex-col { flex-direction: column; }
+      .text-center { text-align: center; } .shadow { box-shadow: 0 1px 3px rgb(0 0 0 / .15); }
+      p.brand { font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #6b6b78; margin-top: 28px; }
+      h1 { font-size: 26px; margin: 10px 0 8px; }
+      p.brief { max-width: 320px; margin: 0 auto; line-height: 1.5; color: #4b4b57; font-size: 14px; }
+            /* Experiments phone screens (see src/components/ExperimentScene.jsx) */
+      .phone {
+        @apply relative h-72 w-40 overflow-hidden rounded-[2.2rem] border-[7px] border-ink bg-white shadow-xl;
+      }
+      
+      .exp-route-car {
+        animation: exp-route 4s ease-in-out infinite alternate;
+      }
+      
+      .exp-route-fill {
+        width: 60%;
+        animation: exp-grow 4s ease-in-out infinite alternate;
+      }
+      
+      .exp-speed {
+        animation: exp-speed 1.2s linear infinite;
+        animation-delay: calc(var(--i) * -0.2s);
+      }
+      
+      .exp-drop-in {
+        animation: exp-drop 4s ease-in infinite;
+        animation-delay: calc(var(--i) * 0.7s);
+      }
+      
+      .exp-star {
+        color: #e5e7eb;
+        animation: exp-star 4s ease-in-out infinite;
+        animation-delay: calc(var(--i) * 0.3s);
+      }
+      
+      .exp-float {
+        animation: exp-float 3.6s ease-out infinite;
+        animation-delay: calc(var(--i) * 1.2s);
+      }
+      
+      .exp-shrink {
+        animation: exp-shrink 6s linear infinite;
+      }
+      
+      .exp-pop {
+        animation: exp-pop 3s ease-in-out infinite;
+        animation-delay: calc(var(--i) * 0.5s);
+      }
+      
+      @keyframes exp-route {
+        from { left: 12%; }
+        to { left: 84%; }
+      }
+      
+      @keyframes exp-grow {
+        from { width: 10%; }
+        to { width: 80%; }
+      }
+      
+      @keyframes exp-speed {
+        from { transform: translateX(40%); }
+        to { transform: translateX(-40%); }
+      }
+      
+      @keyframes exp-drop {
+        0% { transform: translateY(-40px); opacity: 0; }
+        20% { opacity: 1; }
+        50%, 100% { transform: translateY(70px); opacity: 0; }
+      }
+      
+      @keyframes exp-star {
+        0%, 15% { color: #e5e7eb; }
+        35%, 100% { color: #f5b301; }
+      }
+      
+      @keyframes exp-float {
+        0% { transform: translateY(12px); opacity: 0; }
+        25% { opacity: 1; }
+        100% { transform: translateY(-50px); opacity: 0; }
+      }
+      
+      @keyframes exp-shrink {
+        from { width: 100%; }
+        to { width: 0%; }
+      }
+      
+      @keyframes exp-pop {
+        0%, 100% { transform: scale(0.6); opacity: 0.3; }
+        30%, 70% { transform: scale(1); opacity: 1; }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="wrap">
+      <div class="phone">
+        <div class="relative flex flex-col items-center justify-center h-full" style="gap:12px;background:#fff1f2"><div style="display:flex;gap:4px;font-size:24px"><span class="exp-star" style="--i:0">★</span><span class="exp-star" style="--i:1">★</span><span class="exp-star" style="--i:2">★</span><span class="exp-star" style="--i:3">★</span><span class="exp-star" style="--i:4">★</span></div><span class="exp-float absolute rounded-full shadow bg-white" style="--i:0;left:10%;bottom:38%;padding:4px 12px;font-size:10px;font-weight:500">Great flavour</span><span class="exp-float absolute rounded-full shadow bg-white" style="--i:1;right:10%;bottom:16%;padding:4px 12px;font-size:10px;font-weight:500">Fast delivery</span></div>
+      </div>
+      <p class="brand">Concept for Zomato · not affiliated</p>
+      <h1>Ratings that feel alive</h1>
+      <p class="brief">Stars fill in one by one and short reviews float up, making social proof feel like a moment.</p>
+    </main>
+  </body>
+</html>
